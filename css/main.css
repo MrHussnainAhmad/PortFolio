@@ -156,7 +156,7 @@ nav ul li a:hover {
 /* EDUCATION */
 
 #education {
-    background-color: #fff;
+    background-color: black;
     color: black; 
     padding: 20px; 
     max-width: auto; 
@@ -179,6 +179,7 @@ nav ul li a:hover {
     font-size: 36px;
     color: #333;
     margin-bottom: 30px;
+    background-color: #fff;
 }
 
 .education-content {
@@ -186,7 +187,7 @@ nav ul li a:hover {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    background-color: #fff;
+    background-color: black;
     width: 100%;
     
 }
@@ -198,6 +199,8 @@ nav ul li a:hover {
     padding: 20px;
     margin: 0 15px;
     width: 300px;
+    height: 185px;
+    margin-bottom: 10px;
 }
 
 .education-item h2 {
@@ -218,6 +221,9 @@ nav ul li a:hover {
     padding: 20px;
     margin: 0 15px;
     width: 300px;
+    height: 185px;
+    margin-bottom: 10px;
+
 }
 
 .Certificate-item h2 {
@@ -379,11 +385,7 @@ nav ul li a:hover {
         width: 100%; /* Full width on small device*/
     }
 }
-@media (max-width: 1527px) {
-    .education-item, .Certificate-item {
-        width: 100%; /* Full width on small device*/
-    }
-}
+
 /*About-img*/
 @media (max-width: 768px) {
     .about-content {
@@ -429,17 +431,7 @@ nav ul li a:hover {
         padding: 0;
     }
 }
-@media (max-width: 1527px) {
-    .about-content {
-        flex-direction: column;
-        height: auto;
-    }
-    .about-text,
-    .about-image {
-        width: 80%;
-        padding: 0;
-    }
-}
+
 
 /*About*/
 @media only screen and (max-width: 970px) {
@@ -556,6 +548,14 @@ nav ul li a:hover {
 @media only screen and (max-width: 970px) {
     #education {
         height: auto;
+    }
+}
+@media only screen and (max-width: 1527px) {
+    #education {
+        height: auto;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1%;
     }
 }
 @media only screen and (max-width: 600px) {
