@@ -1,0 +1,109 @@
+body{
+    width: auto;
+    height: auto; 
+    background-image: url(/assests/bg.png);
+
+}
+.logo h1 {
+    color: white; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.logo a{
+    text-decoration: none;
+}
+.logo h1:hover{
+    color: #35df01;
+}
+
+.container {
+    width: auto;
+    height: 850px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+}
+
+.box {
+    background-color: black;
+    color: beige;
+    max-width: auto;
+    margin: 20px auto;
+    padding: 0 20px;
+    height: 450px;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+}
+
+
+h2 {
+    color: #333;
+    text-align: center;
+}
+
+form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="email"],
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+form textarea {
+    height: 150px;
+}
+
+form button[type="submit"] {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button[type="submit"]:hover {
+    background-color: #555;
+}
+
+
+/* pop-up */
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#submit-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}

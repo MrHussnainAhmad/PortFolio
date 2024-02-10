@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="css/hire.css" />
+    <link rel="website icon" type="image/icon" href="assests/icons/portfolio.png" />
+
+    <title>Hire Now</title>
+</head>
+
+<body>
+    <div class="logo">
+        <a href="index.html"><h1>Hussnain Ahmad</h1></a>
+    </div>
+    <div class="container">
+        <div class="box">
+            <h2>Request for Hire</h2>
+            <form id="hire-form" action="submit.php" method="POST">
+                <label for="name">Your Name:</label>
+                <input type="text" id="name" name="name" required>
+        
+                <label for="email">Your Email:</label>
+                <input type="email" id="email" name="email" required>
+        
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+        
+                <button type="submit" id="submit-btn">Submit</button>
+            </form>
+        </div>
+    </div>
+    <!-- POP-up -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <p>Message not sent due to server problem.</p>
+            <p>You can email us at <a href="mailto:mrhusssnainahmad@gmail.com">mrhussnainahmad@gmail.com</a>.</p>
+            <button id="ok-btn">OK</button>
+        </div>
+    </div>
+</body>
+<script>
+
+document.getElementById("hire-form").addEventListener("submit", function(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+    
+    // Show the popup message
+    document.getElementById("popup").style.display = "flex";
+});
+
+document.getElementById("ok-btn").addEventListener("click", function() {
+    // Hide the popup message when the user clicks on the "OK" button
+    document.getElementById("popup").style.display = "none";
+});
+
+// Hide the popup message when the user clicks anywhere outside of it
+document.addEventListener("click", function(event) {
+    if (event.target.closest(".popup-content") === null) {
+        document.getElementById("popup").style.display = "none";
+    }
+});
+
+</script>
+</html>
