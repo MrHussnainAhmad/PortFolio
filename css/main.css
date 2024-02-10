@@ -379,6 +379,11 @@ nav ul li a:hover {
         width: 100%; /* Full width on small device*/
     }
 }
+@media (max-width: 1527px) {
+    .education-item, .Certificate-item {
+        width: 100%; /* Full width on small device*/
+    }
+}
 /*About-img*/
 @media (max-width: 768px) {
     .about-content {
@@ -412,7 +417,19 @@ nav ul li a:hover {
         width: 60%;
         padding: 0;
     }
-}@media (max-width: 1440px) {
+}
+@media (max-width: 1440px) {
+    .about-content {
+        flex-direction: column;
+        height: auto;
+    }
+    .about-text,
+    .about-image {
+        width: 80%;
+        padding: 0;
+    }
+}
+@media (max-width: 1527px) {
     .about-content {
         flex-direction: column;
         height: auto;
