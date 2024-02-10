@@ -457,6 +457,83 @@ nav ul li a:hover {
         text-align: center;
     }
 }
+@media (max-width: 768px) {
+    .about-content {
+        flex-direction: column;
+    }
+    .about-text,
+    .about-image {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+}
+@media (max-width: 962px) {
+    .about-content {
+        flex-direction: column;
+    }
+    .about-text,
+    .about-image {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+}
+@media (max-width: 1024px) {
+    .about-content {
+        flex-direction: column;
+    }
+    .about-text,
+    .about-image {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+}
+@media (max-width: 1440px) {
+    .about-content {
+        flex-direction: column;
+    }
+    .about-text,
+    .about-image {
+        width: 100%;
+        padding: 0;
+        text-align: center;
+    }
+    .about-image{
+        float: left;
+    }
+}
+@media (max-width: 400px) {
+    .about-image img {
+      display: block;
+      margin: 0 auto; /* Center the image horizontally */
+    }
+  }
+  @media (max-width: 698px) {
+    .about-image img {
+      display: block;
+      margin: 0 auto; /* Center the image horizontally */
+    }
+  }
+  @media (max-width: 792px) {
+    .about-image img {
+      display: block;
+      margin: 0 auto; /* Center the image horizontally */
+    }
+  }
+  @media (max-width: 1024px) {
+    .about-image img {
+      display: block;
+      margin: 0 auto; /* Center the image horizontally */
+    }
+  }
+  @media (max-width: 1440px) {
+    .about-image img {
+      display: block;
+      margin: 0 auto; /* Center the image horizontally */
+    }
+  }
 /* Media Queries for Responsive Layout */
 /*EDU*/
 @media only screen and (max-width: 970px) {
