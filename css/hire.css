@@ -4,17 +4,41 @@ body{
     background-image: url(/assests/bg.png);
 
 }
-.logo h1 {
-    color: white; 
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
-.logo a{
-    text-decoration: none;
-}
-.logo h1:hover{
-    color: #35df01;
+#header {
+    background-color: transparent; 
+    padding: 20px 0; 
 }
 
+#header header {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    background-color: transparent; 
+}
+
+.logo h1 {
+    color: white; 
+    background-color: transparent;
+    position: absolute;
+    top: 0 ;
+    left: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+}
+
+.logo h1:hover{
+    color: #35df01;
+    cursor:pointer;
+}
+
+
+#canvas {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 .container {
     width: auto;
     height: 850px;

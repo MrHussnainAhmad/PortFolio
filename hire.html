@@ -11,9 +11,14 @@
 </head>
 
 <body>
-    <div class="logo">
-        <a href="index.html"><h1>Hussnain Ahmad</h1></a>
-    </div>
+    <section id="header">
+        <header>
+            <div class="logo">
+                <h1 onclick="redirect()">&emsp; &emsp;Hussnain Ahmad</h1>
+            </div>
+        </header>
+    </section>
+    <video id="canvas" src="assests/bg2.mp4" loop muted autoplay></video>
     <div class="container">
         <div class="box">
             <h2>Request for Hire</h2>
@@ -40,6 +45,12 @@
         </div>
     </div>
 </body>
+<script>
+    function redirect() {
+    window.location.href = 'index.html';
+}
+
+</script>
 <script>
 
 document.getElementById("hire-form").addEventListener("submit", function(event) {

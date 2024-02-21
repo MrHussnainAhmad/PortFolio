@@ -10,7 +10,7 @@
 </head>
 
 <body>
-    <canvas id="space"></canvas>
+    <video id="canvas" src="assests/bg.mp4" loop muted autoplay></video>
     <!-- section-1 :header -->
     <section id="header">
         <header>
@@ -43,7 +43,7 @@
         <div class="container3">
             <div class="about-content">
                 <div class="about-text">
-                    <h2>About Me</h2>
+                    <h2 id="about-h2">About Me</h2>
                     <p>
                         Aslam-o-Alaikum!<br />I'm Hussnain Ahmad, hailing from the
                         beautiful land of Pakistan. Presently, I craft captivating user
@@ -61,8 +61,10 @@
                         diverse tapestry keeps me inspired and engaged every step of the
                         way.
                     </p>
+                <div id="resume1">
                     <p>Here you can see my Resume!</p>
                     <button id="resume" onclick="redirect2()">Resume</button>
+                </div>
                 </div>
                 <div class="about-image">
                     <img src="assests/img.jpeg" alt="Your Photo" />
@@ -114,7 +116,7 @@
                     <p>From Datacamp</p>
                     <p>Major: Computer Science</p>
                     <p>Graduation Year: 2024</p>
-                    <a href="assests/intro.python.pdf">
+                    <a href="assests/certificate.pdf">
                         <p id="verify">Verify</p>
                     </a>
                 </div>
@@ -245,94 +247,8 @@
     function redirect() {
     window.location.href = 'hire.html';
 }
-</script>
-<script>
-    function redirect2() {
+function redirect2() {
     window.location.href = 'assests/resume.pdf';
 }
-</script>
-<script>
-    // Define canvas
-const canvas = document.getElementById('space');
-const context = canvas.getContext('2d');
-
-// Set canvas size to window size
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-// Array to hold stars
-let stars = [];
-
-// Function to initialize stars
-function initStars() {
-    for (let i = 0; i < 1000; i++) {
-        let x = Math.random() * canvas.width;
-        let y = Math.random() * canvas.height;
-        let radius = Math.random() * 1.5;
-        let opacity = Math.random();
-
-        stars.push({
-            x: x,
-            y: y,
-            radius: radius,
-            opacity: opacity
-        });
-    }
-}
-
-// Function to draw stars
-function drawStars() {
-    context.fillStyle = "#FFF";
-    for (let i = 0; i < stars.length; i++) {
-        let star = stars[i];
-        context.beginPath();
-        context.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
-        context.closePath();
-        context.globalAlpha = star.opacity;
-        context.fill();
-    }
-}
-
-// Function to update stars position
-function updateStars() {
-    for (let i = 0; i < stars.length; i++) {
-        let star = stars[i];
-        star.x -= 0.5;
-        if (star.x < 0) {
-            star.x = canvas.width;
-        }
-    }
-}
-
-// Function to create parallax effect
-function parallax(event) {
-    canvas.style.transform = `translateX(${event.clientX / 100}px) translateY(${event.clientY / 100}px)`;
-}
-
-// Function to generate twinkling effect
-function twinklingStars() {
-    for (let i = 0; i < stars.length; i++) {
-        if (Math.random() > 0.99) {
-            stars[i].opacity = Math.random();
-        }
-    }
-}
-
-// Animation loop
-function animate() {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    drawStars();
-    updateStars();
-    twinklingStars();
-    requestAnimationFrame(animate);
-}
-
-// Initialize stars and start animation
-initStars();
-animate();
-
-// Event listener for mouse move to trigger parallax effect
-document.addEventListener('mousemove', parallax);
-
 </script>
 </html>
