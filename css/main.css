@@ -217,6 +217,24 @@ nav ul li a:hover {
     text-align: center; 
     position: relative; 
 }
+#edu{
+    background-color: white;
+    color: black; 
+    padding: 20px; 
+    max-width: auto; 
+    margin: 0 auto; 
+    height: auto;
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    text-align: center; 
+    position: relative; 
+}
+#edu h1 {
+    font-size: 36px;
+    color: white;
+    margin-bottom: 30px;
+}
 .container2 {
     max-width: 100%;
     margin: 0 auto;
@@ -340,11 +358,12 @@ nav ul li a:hover {
     margin-bottom: 5px;
 }
 
+/* Hire-Now */
 
 #hire-now {
     max-width: auto; 
     margin: 0 auto; 
-    height: 400px; 
+    height: 170px; 
     display: flex; 
     justify-content: center; 
     align-items: center; 

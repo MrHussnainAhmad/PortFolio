@@ -24,7 +24,7 @@
                     <li><a href="#education">Education</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#hire-now">Hire Now</a></li>
-                    
+
                 </ul>
             </nav>
         </header>
@@ -61,10 +61,10 @@
                         diverse tapestry keeps me inspired and engaged every step of the
                         way.
                     </p>
-                <div id="resume1">
-                    <p>Here you can see my Resume!</p>
-                    <button id="resume" onclick="redirect2()">Resume</button>
-                </div>
+                    <div id="resume1">
+                        <p>Here you can see my Resume!</p>
+                        <button id="resume" onclick="redirect2()">Resume</button>
+                    </div>
                 </div>
                 <div class="about-image">
                     <img src="assests/img.jpeg" alt="Your Photo" />
@@ -74,6 +74,54 @@
     </section>
 
     <!-- section-4 :Edu -->
+    <section id="edu">
+        <div class="container2">
+            <h1>Professional Certificates</h1>
+            <div class="education-content">
+                <div class="Certificate-item">
+                    <h2>Certificates</h2>
+                    <p style="font-weight: bolder; color: red;">GOOGLE PROJECT MANAGEMENT</p>
+                    <p style="display: inline;">BY:</p>
+                    <p style="font-size: 30px; font-weight: bold; color: #4285F4; display: inline;">G</p>
+                    <p style="font-size: 30px; font-weight: bold; color: #EA4335; display: inline;">o</p>
+                    <p style="font-size: 30px; font-weight: bold; color: #FBBC05; display: inline;">o</p>
+                    <p style="font-size: 30px; font-weight: bold; color: #4285F4; display: inline;">g</p>
+                    <p style="font-size: 30px; font-weight: bold; color: #34A853; display: inline;">l</p>
+                    <p style="font-size: 30px; font-weight: bold; color: #EA4335; display: inline;">e</p>
+                    <p>Major: Computer Science</p>
+                    <p>Graduation Year: 2024</p>
+                    <p>Graduation Span: 4 Months</p>
+                    <a href=".">
+                        <p id="verify">In Progress</p>
+                    </a>
+                </div>
+                <div class="Certificate-item">
+                    <h2>Certificates</h2>
+                    <p style="font-weight: bolder; color: red;"> REST APIs with Flask and Python
+                    </p>
+                    <p style="display: inline;">From: </p>
+                    <p style="display: inline;font-weight: bolder;">Udemy</p>
+                    <p>Major: Computer Science</p>
+                    <p>Graduation Year: 2024</p>
+                    <p>Graduation Span: 2 Months</p>
+                    <a href=".">
+                        <p id="verify">In Progress</p>
+                    </a>
+                </div>
+                <div class="Certificate-item">
+                    <h2>Certificates</h2>
+                    <p>Django for Everbody</p>
+                    <p>From University of Michigan<br>(Coursea)</p>
+                    <p>Major: Computer Science</p>
+                    <p>Graduation Year: 2024</p>
+                    <a href="">
+                        <p id="verify">In Progress!</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </section>
     <section id="education">
         <div class="container2">
             <h1>Education & Certificates</h1>
@@ -90,7 +138,7 @@
                     <p>Major: Computer Science</p>
                     <p>Graduation Year: 2027 --</p>
                 </div>
-                                <div class="Certificate-item">
+                <div class="Certificate-item">
                     <h2>Certificates</h2>
                     <p>Code Yourself: Introduction to Programming</p>
                     <p>By Coursea</p>
@@ -150,27 +198,6 @@
                         <p id="verify">Verify</p>
                     </a>
                 </div>
-                <div class="Certificate-item">
-                    <h2>Certificates</h2>
-                    <p>Django for Everbody</p>
-                    <p>From University of Michigan(Coursea)</p>
-                    <p>Major: Computer Science</p>
-                    <p>Graduation Year: 2024</p>
-                         <a href="">
-                         <p id="verify">In Progress!</p> 
-                    </a>
-                </div>
-                <div class="Certificate-item">
-                    <h2>Certificates</h2>
-                    <p style="font-weight: bolder; color: red;">GOOGLE PROJECT MANAGEMENT</p>
-                    <p>From Coursera</p>
-                    <p>Major: Computer Science</p>
-                    <p>Graduation Year: 2024</p>
-                    <p>Graduation Span: 4 Months</p>
-                    <a href=".">
-                        <p id="verify">Starting on March 4th!!!</p>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
@@ -198,17 +225,17 @@
     <!-- section-6 :hire-now -->
     <section id="hire-now">
         <div class="container5">
-          <h2>Hire Now</h2>
-          <div class="hire-info">
-            <p>Looking for top-notch talent to drive your projects forward?</p>
-            <p>Our team of experienced developers is ready to take on your challenges.</p>
-            <button class="hire-btn" onclick="redirect()">Get in Touch</button>
-          </div>
+            <h2>Hire Now</h2>
+            <div class="hire-info">
+                <p>Looking for top-notch talent to drive your projects forward?</p>
+                <p>Our team of experienced developers is ready to take on your challenges.</p>
+                <button class="hire-btn" onclick="redirect()">Get in Touch</button>
+            </div>
         </div>
-      </section>
-      
-      <!-- section-7 :footer -->
-<section id="footer">Website Proudly Made by : Hussnain Ahmad</section>
+    </section>
+
+    <!-- section-7 :footer -->
+    <section id="footer">Website Proudly Made by : Hussnain Ahmad</section>
 </body>
 <!-- SCRIPTS -->
 <script>
@@ -255,31 +282,32 @@
     requestAnimationFrame(animateText);
 </script>
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    const links = document.querySelectorAll('a[href^="#"]');
-  
-    for (const link of links) {
-        link.addEventListener("click", clickHandler);
-    }
-  
-    function clickHandler(e) {
-        e.preventDefault();
-        const href = this.getAttribute("href");
-        const offsetTop = document.querySelector(href).offsetTop;
-    
-        scroll({
-            top: offsetTop,
-            behavior: "smooth"
-        });
-    }
-});
+    document.addEventListener("DOMContentLoaded", function () {
+        const links = document.querySelectorAll('a[href^="#"]');
+
+        for (const link of links) {
+            link.addEventListener("click", clickHandler);
+        }
+
+        function clickHandler(e) {
+            e.preventDefault();
+            const href = this.getAttribute("href");
+            const offsetTop = document.querySelector(href).offsetTop;
+
+            scroll({
+                top: offsetTop,
+                behavior: "smooth"
+            });
+        }
+    });
 </script>
 <script>
     function redirect() {
-    window.location.href = 'https://www.linkedin.com/in/hussnain-ahamd-b93bb228a/';
-}
-function redirect2() {
-    window.location.href = 'assests/resume.pdf';
-}
+        window.location.href = 'https://www.linkedin.com/in/hussnain-ahamd-b93bb228a/';
+    }
+    function redirect2() {
+        window.location.href = 'assests/resume.pdf';
+    }
 </script>
+
 </html>
