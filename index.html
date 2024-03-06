@@ -10,25 +10,25 @@
 </head>
 
 <body>
-    <video id="canvas" src="assests/bg.mp4" loop muted autoplay></video>
+    <!-- <video id="canvas" src="assests/bg.mp4" loop muted autoplay></video> -->
     <!-- section-1 :header -->
     <section id="header">
         <header>
             <div class="logo">
                 <h1>&emsp; &emsp;Hussnain Ahmad</h1>
             </div>
+            </div>
             <nav>
                 <ul>
-                    <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#education">Education</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#hire-now">Hire Now</a></li>
-
                 </ul>
             </nav>
         </header>
     </section>
+
 
     <!-- section-2 :HOME -->
     <section id="home">
@@ -213,7 +213,7 @@
                     <p>From The Islamia University <br>X GDSC</p>
                     <p>Major: Computer Science</p>
                     <p></p>
-                    <a href="">
+                    <a href="assests/logics.py.jpeg">
                         <p id="verify">Verify!</p>
                     </a>
                 </div>
@@ -328,6 +328,42 @@
     function redirect2() {
         window.location.href = 'assests/resume.pdf';
     }
+</script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const menuIcon = document.querySelector('.menu-icon');
+    const navUl = document.querySelector('nav ul');
+    const menuContainer = document.getElementById('menuContainer');
+
+    menuIcon.addEventListener('click', function () {
+        menuIcon.classList.toggle('active');
+        navUl.classList.toggle('active');
+        menuContainer.style.display = menuContainer.style.display === 'block' ? 'none' : 'block';
+    });
+
+    const links = document.querySelectorAll('.menu-container ul li a');
+
+    for (const link of links) {
+        link.addEventListener('click', function (e) {
+            e.preventDefault();
+            const href = this.getAttribute('href');
+            const offsetTop = document.querySelector(href).offsetTop;
+
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+
+            // Close the menu after clicking on a link
+            menuIcon.classList.remove('active');
+            navUl.classList.remove('active');
+            menuContainer.style.display = 'none';
+        });
+    }
+});
+
+
 </script>
 
 </html>
