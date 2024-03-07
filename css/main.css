@@ -1,11 +1,17 @@
-
-body, h1, h2, h3, ul, li, a {
+body,
+h1,
+h2,
+h3,
+ul,
+li,
+a {
     margin: 0;
     padding: 0;
     background: black;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    text-decoration: none; 
+    text-decoration: none;
 }
+
 #canvas {
     display: block;
     position: fixed;
@@ -13,80 +19,85 @@ body, h1, h2, h3, ul, li, a {
     left: 0;
     z-index: -1;
 }
+
 #header {
-    background-color: transparent; 
-    padding: 20px 0; 
+    background-color: transparent;
+    padding: 20px 0;
 }
 
 #header header {
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    background-color: transparent; 
-}
-
-.logo h1 {
-    color: white; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: transparent;
 }
 
-.logo h1:hover{
+.logo h1 {
+    color: white;
+    background-color: transparent;
+}
+
+.logo h1:hover {
     color: #35df01;
 }
 
 nav ul {
-    list-style-type: none; 
+    list-style-type: none;
     display: flex;
-    background-color: transparent; 
+    background-color: transparent;
 
 }
 
 nav ul li {
-    margin-right: 24px; 
-    background-color: transparent; 
+    margin-right: 24px;
+    background-color: transparent;
 
 }
 
 nav ul li a {
-    color: wheat; 
-    transition: text-decoration 0.3s ease; 
-    background-color: transparent; 
+    color: wheat;
+    transition: text-decoration 0.3s ease;
+    background-color: transparent;
 
 }
 
 nav ul li a:hover {
-    text-decoration: underline; 
+    text-decoration: underline;
 }
 
 /*Home*/
 
 #home {
-    color: white; 
-    padding: 20px; 
-    max-width: auto; 
-    margin: 0 auto; 
-    height: 200px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    color: white;
+    padding: 20px;
+    max-width: auto;
+    margin: 0 auto;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
 /* Home-TYPE */
 .container {
     width: 346px;
     overflow: hidden;
     text-align: center;
-  }
-  .container .text {
+}
+
+.container .text {
     position: relative;
     color: #35df01;
     font-size: 26px;
     font-weight: 600;
-  }
-  .container .text.first-text {
+}
+
+.container .text.first-text {
     color: #fff;
-  }
-  .text.first-text:before,
-  .text.sec-text:before {
+}
+
+.text.first-text:before,
+.text.sec-text:before {
     content: "";
     position: absolute;
     top: 0;
@@ -96,8 +107,9 @@ nav ul li a:hover {
     /* background-color: black; */
     border-left: 2px solid #35df01;
     animation: animate 4s steps(12) infinite;
-  }
-  .text.sec-text:before {
+}
+
+.text.sec-text:before {
     content: "";
     position: absolute;
     top: 0;
@@ -107,30 +119,34 @@ nav ul li a:hover {
     /* background-color: black; */
     border-left: 2px solid #35df01;
     animation: animate 4s steps(12) infinite;
-  }
-  @keyframes animate {
+}
+
+@keyframes animate {
+
     40%,
     60% {
-      left: calc(100% + 4px);
+        left: calc(100% + 4px);
     }
+
     100% {
-      left:0%;
+        left: 0%;
     }
-  }
+}
 
 
 
 /* ABOUT */
 
 #about {
-    padding: 20px; 
-    max-width: auto; 
-    margin: 0 auto; 
+    padding: 20px;
+    max-width: auto;
+    margin: 0 auto;
     height: 400px;
-    display: flex; 
-    justify-content: center; 
+    display: flex;
+    justify-content: center;
     align-items: center;
 }
+
 .container3 {
     max-width: 960px;
     margin: 0 auto;
@@ -149,23 +165,26 @@ nav ul li a:hover {
 
 .about-text {
     width: 50%;
-    padding-right: 10px; 
+    padding-right: 10px;
     color: #fff;
     z-index: 345678;
-    font-weight:bolder;
+    font-weight: bolder;
     /* margin: 10%; */
 
 }
-#about-h2{
+
+#about-h2 {
     background-color: transparent;
     color: red;
     font-style: italic;
 }
+
 .about-image {
     width: 50%;
-    padding-left: 10px; 
-    text-align: center; 
+    padding-left: 10px;
+    text-align: center;
 }
+
 .about-image {
     display: flex;
     justify-content: center;
@@ -181,11 +200,13 @@ nav ul li a:hover {
     align-items: center;
     z-index: 999;
 }
-#resume1{
+
+#resume1 {
     align-content: center;
     text-align: center;
     margin-bottom: 3%;
 }
+
 #resume {
     background-color: red;
     color: #fff;
@@ -206,35 +227,38 @@ nav ul li a:hover {
 
 #education {
     background-color: white;
-    color: black; 
-    padding: 20px; 
-    max-width: auto; 
-    margin: 0 auto; 
+    color: black;
+    padding: 20px;
+    max-width: auto;
+    margin: 0 auto;
     height: auto;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
 }
-#edu{
+
+#edu {
     background-color: white;
-    color: black; 
-    padding: 20px; 
-    max-width: auto; 
-    margin: 0 auto; 
+    color: black;
+    padding: 20px;
+    max-width: auto;
+    margin: 0 auto;
     height: auto;
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    text-align: center; 
-    position: relative; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: relative;
 }
+
 #edu h1 {
     font-size: 36px;
     color: white;
     margin-bottom: 30px;
 }
+
 .container2 {
     max-width: 100%;
     margin: 0 auto;
@@ -255,7 +279,7 @@ nav ul li a:hover {
     align-items: center;
     background-color: #fff;
     width: 100%;
-    
+
 }
 
 .education-item {
@@ -278,19 +302,41 @@ nav ul li a:hover {
     color: #666;
     margin-bottom: 5px;
 }
+
 .Certificate-item {
     background-color: #fff;
     border: 1px solid #ddd;
     border-radius: 5px;
     padding: 20px;
     margin: 10px 15px;
-    width: 300px;
+    width: 300px; /* Fixed width container */
+    overflow: hidden; /* Ensure content doesn't overflow */
+    height: 320px;
 }
-
 .Certificate-item h2 {
     font-size: 24px;
     color: white;
     margin-bottom: 10px;
+}
+
+.Certificate-item img {
+    width: 70%; /* Set the width of the image */
+    height: auto; /* Maintain aspect ratio */
+    display: block; /* Ensure the image is treated as a block element */
+    margin: 0 auto; /* Center the image horizontally */
+}
+
+.Certificate-item img.speacial {
+    width: 190px; /* Set the width of the image */
+    height: 140px; /* Set the height of the image */
+    border-radius: 5px; /* Rounded corners */
+    margin-bottom: 15px; /* Space below the image */
+}
+
+.Certificate-item img:hover {
+    transform: scale(1.1); /* Scale the image up by 10% */
+    opacity: 0.8; /* Reduce opacity to 80% */
+    filter: brightness(120%); /* Increase brightness by 20% */
 }
 
 .Certificate-item p {
@@ -299,44 +345,48 @@ nav ul li a:hover {
     margin-bottom: 5px;
 }
 #verify {
-    color: red; 
-    transition: color 0.3s; 
+    color: red;
+    transition: color 0.3s;
 }
 
 #verify:hover {
-    color: blue; 
+    color: blue;
 }
 
 /* PROJECT */
 
 #projects {
-    padding: 20px; 
-    max-width: auto; 
-    margin: 0 auto; 
-    height: auto; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    padding: 20px;
+    max-width: auto;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: #fff;
     display: flex;
     flex-wrap: wrap;
 }
+
 .container4 {
     max-width: 100%;
     margin: 0 auto;
     text-align: center;
     display: inline-flexbox;
 }
+
 .projects-row {
     display: flex;
     flex-wrap: wrap;
 }
+
 #projects h1 {
     font-size: 36px;
     color: #333;
     margin-bottom: 30px;
     background-color: #fff;
 }
+
 .projects-content {
     background-color: #fff;
     border: 1px solid #ddd;
@@ -361,15 +411,16 @@ nav ul li a:hover {
 /* Hire-Now */
 
 #hire-now {
-    max-width: auto; 
-    margin: 0 auto; 
-    height: 170px; 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
+    max-width: auto;
+    margin: 0 auto;
+    height: 170px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: white;
     color: #010718;
 }
+
 #hire-now {
     padding: 50px 0;
 }
@@ -378,27 +429,27 @@ nav ul li a:hover {
     width: 80%;
     margin: auto;
     text-align: center;
-  }
-  
-  #hire-now h2 {
+}
+
+#hire-now h2 {
     font-size: 36px;
     color: white;
     margin-bottom: 20px;
-    
-  }
-  
-  .hire-info {
+
+}
+
+.hire-info {
     max-width: 600px;
     margin: 0 auto;
-  }
-  
-  .hire-info p {
+}
+
+.hire-info p {
     font-size: 18px;
     color: #666;
     margin-bottom: 20px;
-  }
-  
-  .hire-btn {
+}
+
+.hire-btn {
     background-color: #4caf50;
     color: #fff;
     border: none;
@@ -406,12 +457,13 @@ nav ul li a:hover {
     font-size: 18px;
     cursor: pointer;
     transition: background-color 0.3s ease;
-  }
-  
-  .hire-btn:hover {
+}
+
+.hire-btn:hover {
     background-color: red;
-  }
-#footer{
+}
+
+#footer {
     background-color: black;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
@@ -422,57 +474,70 @@ nav ul li a:hover {
 /* Responsive design */
 /*Header*/
 @media (max-width: 768px) {
+
     /* Target the navigation element */
     nav {
-      display: none;
+        display: none;
     }
-  }
-  
+}
+
 
 /*Edu*/
 @media (max-width: 962px) {
-    .education-item, .Certificate-item {
-        width: 100%; /* Full width on small device*/
+
+    .education-item,
+    .Certificate-item {
+        width: 100%;
+        /* Full width on small device*/
     }
 }
+
 /*About-img*/
 @media (max-width: 768px) {
     .about-content {
         flex-direction: column;
         height: auto;
     }
+
     .about-text,
     .about-image {
         width: 50%;
         padding: 0;
     }
 }
+
 @media (max-width: 400px) {
     .about-content {
         flex-direction: column;
         height: auto;
     }
+
     .about-text,
     .about-image {
         width: 50%;
         padding: 0;
     }
 }
+
 @media (max-width: 600px) {
     .about-content {
         flex-direction: column;
         height: auto;
     }
+
     .about-text,
     .about-image {
         width: 60%;
         padding: 0;
     }
-}@media (max-width: 1440px) {
+}
+
+@media (max-width: 1440px) {
     .about-content {
         flex-direction: column;
         height: auto;
     }
+
     .about-text,
     .about-image {
         width: 80%;
@@ -487,26 +552,31 @@ nav ul li a:hover {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 600px) {
     #about {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 400px) {
     #about {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 1440px) {
     #about {
         height: auto;
     }
 }
+
 /* Media query for mobile devices */
 @media (max-width: 480px) {
     .about-content {
         flex-direction: column;
     }
+
     .about-text,
     .about-image {
         width: 100%;
@@ -522,27 +592,33 @@ nav ul li a:hover {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 1527px) {
     #education {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 600px) {
     #education {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 400px) {
     #education {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 1440px) {
     #education {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 970px) {
+
     .education-item,
     .Certificate-item {
         width: 100%;
@@ -550,7 +626,9 @@ nav ul li a:hover {
         height: 10%;
     }
 }
+
 @media only screen and (max-width: 400px) {
+
     .education-item,
     .Certificate-item {
         width: 100%;
@@ -565,30 +643,35 @@ nav ul li a:hover {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 600px) {
     #projects {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 400px) {
     #projects {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 1440px) {
     #projects {
         height: auto;
     }
 }
+
 @media only screen and (max-width: 970px) {
-.projects-content{
+    .projects-content {
         width: 100%;
         margin: 10px;
         height: 10%;
     }
 }
+
 @media only screen and (max-width: 400px) {
-.projects-content{
+    .projects-content {
         width: 100%;
         margin: 10px;
         height: 10%;
