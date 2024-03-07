@@ -421,25 +421,13 @@ nav ul li a:hover {
 
 /* Responsive design */
 /*Header*/
-@media screen and (max-width: 768px) {
-    #header header {
-        flex-direction: column;
-        align-items: center;
+@media (max-width: 768px) {
+    /* Target the navigation element */
+    nav {
+      display: none;
     }
-
-    .logo h1 {
-        margin-bottom: 10px;
-    }
-
-    nav ul {
-        flex-direction: column;
-    }
-
-    nav ul li {
-        margin-right: 0;
-        margin-bottom: 10px;
-    }
-}
+  }
+  
 
 /*Edu*/
 @media (max-width: 962px) {
@@ -526,6 +514,7 @@ nav ul li a:hover {
         text-align: center;
     }
 }
+
 /* Media Queries for Responsive Layout */
 /*EDU*/
 @media only screen and (max-width: 970px) {
@@ -607,7 +596,7 @@ nav ul li a:hover {
 }
 
 
-/* 2560 */
+/* Canvas (2560) */
 video {
     width: 100%;
     height: 100%;
