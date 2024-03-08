@@ -31,10 +31,14 @@ a {
     align-items: center;
     background-color: transparent;
 }
-
+.logo{
+    margin-right: 10px; /* Adjust margin-right as needed */
+    margin-left: 30px;
+}
 .logo h1 {
     color: white;
     background-color: transparent;
+
 }
 
 .logo h1:hover {
@@ -309,10 +313,13 @@ nav ul li a:hover {
     border-radius: 5px;
     padding: 20px;
     margin: 10px 15px;
-    width: 300px; /* Fixed width container */
-    overflow: hidden; /* Ensure content doesn't overflow */
+    width: 300px;
+    /* Fixed width container */
+    overflow: hidden;
+    /* Ensure content doesn't overflow */
     height: auto;
 }
+
 .Certificate-item h2 {
     font-size: 24px;
     color: white;
@@ -320,25 +327,36 @@ nav ul li a:hover {
 }
 
 .Certificate-item img {
-    width: 70%; /* Set the width of the image */
-    height: auto; /* Maintain aspect ratio */
-    display: block; /* Ensure the image is treated as a block element */
-    margin: 0 auto; /* Center the image horizontally */
+    width: 70%;
+    /* Set the width of the image */
+    height: auto;
+    /* Maintain aspect ratio */
+    display: block;
+    /* Ensure the image is treated as a block element */
+    margin: 0 auto;
+    /* Center the image horizontally */
 }
 
 .Certificate-item img.speacial {
-    width: 150px; /* Set the width of the image */
-    height: 110px; /* Set the height of the image */
-    border-radius: 5px; /* Rounded corners */
-    margin-bottom: 15px; /* Space below the image */
+    width: 150px;
+    /* Set the width of the image */
+    height: 110px;
+    /* Set the height of the image */
+    border-radius: 5px;
+    /* Rounded corners */
+    margin-bottom: 15px;
+    /* Space below the image */
     align-items: center;
     justify-content: center;
 }
 
 .Certificate-item img:hover {
-    transform: scale(1.1); /* Scale the image up by 10% */
-    opacity: 0.8; /* Reduce opacity to 80% */
-    filter: brightness(120%); /* Increase brightness by 20% */
+    transform: scale(1.1);
+    /* Scale the image up by 10% */
+    opacity: 0.8;
+    /* Reduce opacity to 80% */
+    filter: brightness(120%);
+    /* Increase brightness by 20% */
 }
 
 .Certificate-item p {
@@ -346,6 +364,7 @@ nav ul li a:hover {
     color: #666;
     margin-bottom: 5px;
 }
+
 #verify {
     color: red;
     transition: color 0.3s;
@@ -703,3 +722,20 @@ video {
 }
 
 /*TEST*/
+/* CSS for mobile view */
+/* CSS for mobile view */
+@media only screen and (max-width: 768px) {
+
+    /* Centering the logo */
+    #header header {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    .logo {
+        text-align: center;
+        transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+}
