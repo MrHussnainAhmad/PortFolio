@@ -311,7 +311,7 @@ nav ul li a:hover {
     margin: 10px 15px;
     width: 300px; /* Fixed width container */
     overflow: hidden; /* Ensure content doesn't overflow */
-    height: 320px;
+    height: auto;
 }
 .Certificate-item h2 {
     font-size: 24px;
@@ -327,10 +327,12 @@ nav ul li a:hover {
 }
 
 .Certificate-item img.speacial {
-    width: 190px; /* Set the width of the image */
-    height: 140px; /* Set the height of the image */
+    width: 150px; /* Set the width of the image */
+    height: 110px; /* Set the height of the image */
     border-radius: 5px; /* Rounded corners */
     margin-bottom: 15px; /* Space below the image */
+    align-items: center;
+    justify-content: center;
 }
 
 .Certificate-item img:hover {
