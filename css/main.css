@@ -434,7 +434,7 @@ nav ul li a:hover {
 #hire-now {
     max-width: auto;
     margin: 0 auto;
-    height: 170px;
+    height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
