@@ -28,24 +28,25 @@ a {
     height: 100%;
     background-color: #000000;
     overflow: hidden;
-  }
-  
-  #space-journey .star {
+}
+
+#space-journey .star {
     position: absolute;
     background-color: #ffffff;
     border-radius: 50%;
-  }
-  
-  @keyframes shooting-star {
+}
+
+@keyframes shooting-star {
     0% {
-      transform: translate(-100%, -100%);
-      opacity: 0;
+        transform: translate(-100%, -100%);
+        opacity: 0;
     }
+
     100% {
-      transform: translate(100%, 100%);
-      opacity: 1;
+        transform: translate(100%, 100%);
+        opacity: 1;
     }
-  }
+}
 
 #header {
     background-color: transparent;
@@ -60,11 +61,14 @@ a {
     background-color: transparent;
     z-index: 1;
 }
-.logo{
-    margin-right: 10px; /* Adjust margin-right as needed */
+
+.logo {
+    margin-right: 10px;
+    /* Adjust margin-right as needed */
     margin-left: 30px;
     z-index: 1;
 }
+
 .logo h1 {
     color: white;
     background-color: transparent;
@@ -484,14 +488,10 @@ nav ul li a:hover {
     align-items: center;
     background-color: white;
     color: #010718;
-    z-index: 1;
-}
-
-#hire-now {
     padding: 50px 0;
     z-index: 1;
-
 }
+
 
 .container5 {
     width: 80%;
@@ -544,7 +544,7 @@ nav ul li a:hover {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: white;
     text-align: center;
-    z-index: 1;
+    z-index: 10;
 }
 
 
@@ -793,5 +793,189 @@ video {
     .logo {
         text-align: center;
         transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+}
+
+#message-now {
+    max-width: auto;
+    margin: 0 auto;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    color: #010718;
+    text-align: center;
+    padding: 20px;
+    z-index: 1;
+}
+
+#message-now img {
+    width: 200px;
+    display: block;
+    margin: 0 auto;
+    position: absolute;
+    left: 60%;
+    z-index: 99;
+}
+
+#message-now h2 {
+    font-size: 36px;
+    color: black;
+    margin-bottom: 20px;
+    z-index: 1;
+    background-color: white;
+}
+
+form {
+    width: auto;
+    max-width: 500px;
+    padding: 30px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+form:hover {
+    transition: transform 0.3s ease;
+    transform: scale(1.1);
+    filter: invert(1); /* Invert colors on hover */
+
+}
+form:hover input[type="text"],
+form:hover input[type="email"],
+form:hover input[type="phone"],
+form:hover textarea,
+form:hover button {
+  filter: invert(1); /* Invert colors on hover */
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+h3 {
+    margin-bottom: 5px;
+    /* Adjust spacing between headings */
+}
+
+input[type="email"],
+input[type="text"],
+input[type="phone"],
+/* Corrected typo in input type */
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    margin-right: 25px;
+}
+
+.container5 {
+    padding-right: 5px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+/* Styling for file input */
+input[type="file"] {
+    display: none;
+}
+
+label.file-label {
+    display: block;
+    background-color: #007bff;
+    color: #fff;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+label.file-label:hover {
+    background-color: #0056b3;
+}
+
+@media screen and (max-width: 600px) {
+    form {
+        padding: 20px;
+    }
+}
+
+@media screen and (max-width: 985px) {
+    .container5 {
+        width: auto;
+    }
+}
+
+form h3 {
+    background-color: white;
+    text-align: start;
+}
+
+@media screen and (max-width: 985px) {
+    #message-now img {
+        display: none;
+        transition: display 0.3s ease;
+        /* Add transition for smooth hiding */
+    }
+}
+
+@media screen and (max-width: 1317px) {
+    #message-now img {
+        position: absolute;
+        left: 63%;
+    }
+}
+
+@media screen and (max-width: 1213px) {
+    #message-now img {
+        position: absolute;
+        left: 65%;
+    }
+}
+
+@media screen and (max-width: 1099px) {
+    #message-now img {
+        position: absolute;
+        left: 66%;
+    }
+}
+
+@media screen and (max-width: 1051px) {
+    #message-now img {
+        position: absolute;
+        left: 67%;
+    }
+}
+
+@media screen and (max-width: 1011px) {
+    #message-now img {
+        position: absolute;
+        left: 68%;
     }
 }
