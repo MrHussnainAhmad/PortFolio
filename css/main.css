@@ -86,6 +86,8 @@ nav ul {
     display: flex;
     background-color: transparent;
     z-index: 1;
+    /* Adjust margin-right as needed */
+    margin-right: 30px;
 }
 
 nav ul li {
@@ -182,7 +184,7 @@ nav ul li a:hover {
     padding: 20px;
     max-width: auto;
     margin: 0 auto;
-    height: 400px;
+    height: 600px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -867,7 +869,7 @@ input[type="text"],
 input[type="phone"],
 /* Corrected typo in input type */
 textarea {
-    width: 100%;
+    width: 95%;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -978,4 +980,30 @@ form h3 {
         position: absolute;
         left: 68%;
     }
+}
+@keyframes sparkle {
+    0% { transform: scale(1) rotate(0deg); }
+    50% { transform: scale(1.1) rotate(45deg); }
+    100% { transform: scale(1) rotate(0deg); }
+}
+
+.vip-badge {
+    background-color: gold;
+    color: black;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-left: 5px;
+}
+
+.fa-star.sparkle {
+    color: gold;
+    animation: sparkle 1.5s infinite;
+}
+
+#message-now img {
+    transition: opacity 0.3s ease; /* Smooth transition effect */
+}
+
+#message-now img:hover {
+    opacity: 0; /* Make the image transparent on hover */
 }

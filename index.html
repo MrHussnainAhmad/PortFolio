@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="css/main.css" />
     <meta name="google-site-verification" content="9Z_wg_F2y8OIyn7-_tGClJ-cH5RhB57StxyFZRGTaQk" />
     <link rel="website icon" type="image/icon" href="assests/icons/portfolio.png" />
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-vAI42OV4RznZrC2lPCJ8VQT9Gv9UJ+yD34VB45DLjUkZl5vEDcFdSm2MCU5/Cp9JswVnybWqnlsbzKWzYh0gZg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
     <title>Hussnain Ahmad</title>
 </head>
 
@@ -26,6 +29,7 @@
                     <li><a href="#education">Education</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#hire-now">Hire Now</a></li>
+                    <li class="vip"><a href="assests/Book.pdf">Ebook <span class="vip-badge">VIP</span> <i class="fas fa-star sparkle"></i></a></li>
                 </ul>
             </nav>
         </header>
@@ -62,6 +66,15 @@
                         creativity of cooking, and the liberation of writing. Life's
                         diverse tapestry keeps me inspired and engaged every step of the
                         way.
+                        <br /><br />
+                        In my journey, I find a place where imagination rules, and that's where
+                         I love writing fantasy shortbooks. Every time I sit down to write, I
+                          explore magical worlds with creatures like dragons, brave adventures, 
+                          and places full of wonder. Writing these stories isn't just something 
+                          I do for fun; it's like opening a door to endless ideas, where dreams 
+                          can come true and exciting journeys wait for readers to join. Whether 
+                          I'm creating big, epic stories or charming, magical tales, I enjoy 
+                          bringing readers along to places they've never dreamed of.
                     </p>
                     <div id="resume1">
                         <p>Here you can see my Resume!</p>
@@ -243,11 +256,13 @@
     <!-- section-6 :hire-now -->
     <section id="hire-now">
         <div class="container5">
+            <p><br></p>
             <h2>Hire Now</h2>
             <div class="hire-info">
                 <p>Looking for top-notch talent to drive your projects forward?</p>
                 <p>Our team of experienced developers is ready to take on your challenges.</p>
                 <button style="width: auto;" class="hire-btn" onclick="redirect()">Get in Touch On&ensp; <img src="/assests/icons/linkedin.png" alt="LinkedIn" salt="LinkedIn" style="width: 25px; height: 25px;vertical-align: middle;"></button>
+                <p><br></p>
             </div>
         </div>
     </section>
@@ -298,7 +313,8 @@
             firstText.textContent = "I Love ";
         } else if (elapsed < 20000) {
             firstText.textContent = "I Can Create ";
-        } else {
+        }
+         else {
             startTime = timestamp; // Reset animation
         }
 
