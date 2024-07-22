@@ -33,7 +33,11 @@
     font-size: 1.5rem;
     animation: fadeIn 4s ease-in-out;
   }
-  
+
+  .welcome-container:hover{
+    transform: rotateY(1deg) scale(1.01);
+
+  }
   /* Animation */
   @keyframes fadeIn {
     from {

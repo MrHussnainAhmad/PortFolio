@@ -32,7 +32,7 @@ function NavBar() {
                 <Link
                   className={`nav-link mx-lg-2 active ${styles.navlink}`}
                   aria-current="page"
-                  to="/"
+                  to="/home"
                 >
                   Home
                 </Link>
@@ -48,7 +48,7 @@ function NavBar() {
               <li className="nav-item">
                 <Link
                   className={`nav-link mx-lg-2 ${styles.navlink}`}
-                  to="#projects"
+                  to="/projects"
                 >
                   Projects
                 </Link>
@@ -64,7 +64,7 @@ function NavBar() {
               <li className="nav-item">
                 <Link
                   className={`nav-link mx-lg-2 ${styles.navlink}`}
-                  to="#contact"
+                  to="/contact"
                 >
                   Contact
                 </Link>
@@ -72,7 +72,7 @@ function NavBar() {
             </ul>
           </div>
         </div>
-        <Link to="/" className={`${styles.Hirebtn} ${styles.customHirebtn}`}>
+        <Link to="https://www.linkedin.com/in/hussnain-ahamd-sahi/" className={`${styles.Hirebtn} ${styles.customHirebtn}`}>
           Hire-Now
         </Link>
         <button

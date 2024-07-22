@@ -5,94 +5,94 @@ import styles from "./styles.module.css";
 import resumePDF from "../assets/Resume.pdf";
 import img from "../assets/image2.png";
 import Welcome from "./Welcome";
-import mybook from '../assets/Book.pdf';
+import mybook from "../assets/Book.pdf";
+import Footer from "./Footer";
 
 function Home({ name }) {
   return (
     <>
-      <nav className={`navbar navbar-expand-lg fixed-top ${styles.navbar1}`}>
-        <div className="container-fluid">
-          <Link className={`navbar-brand me-auto ${styles.navbarbrand1}`} to="/">
+      <nav class={`navbar navbar-expand-lg fixed-top ${styles.navbar1}`}>
+        <div class="container-fluid">
+          <a class={`navbar-brand me-auto ${styles.navbarbrand1}`} href="/">
             <b>Hussnain Ahmad</b>
-          </Link>
+          </a>
           <div
-            className="offcanvas offcanvas-end text-bg-dark"
-            tabIndex="-1"
+            class="offcanvas offcanvas-end text-bg-dark"
+            tabindex="-1"
             id="offcanvasDarkNavbar"
             aria-labelledby="offcanvasDarkNavbarLabel"
           >
-            <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasDarkNavbarLabel">
+            <div class="offcanvas-header">
+              <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">
                 Hussnain Ahmad
               </h5>
               <button
                 type="button"
-                className={`btn-close btn-close-white ${styles.btnclose}`}
+                class={`${styles.btnClose} btn-close-white`}
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
               ></button>
             </div>
-            <div className="offcanvas-body">
-              <ul className="navbar-nav justify-content-center flex-grow-1 pe-3">
+            <div class="offcanvas-body">
+              <ul class="navbar-nav justify-content-center flex-grow-1 pe-3">
+              <li className="nav-item">
+                <Link
+                  className={`nav-link mx-lg-2 active ${styles.navlink}`}
+                  aria-current="page"
+                  to="/home"
+                >
+                  Home
+                </Link>
+              </li>
                 <li className="nav-item">
-                  <Link
-                    className={`nav-link mx-lg-2 active ${styles.navlink}`}
-                    aria-current="page"
-                    to="/"
-                  >
-                    Home
-                  </Link>
-                </li>
+                <Link
+                  className={`nav-link mx-lg-2 ${styles.navlink}`}
+                  to="/education" // Ensure this path matches your route
+                >
+                  Education
+                </Link>
+              </li>
+
                 <li className="nav-item">
-                  <Link 
-                    className={`nav-link mx-lg-2 ${styles.navlink}`}
-                    to="/education"  // Ensure this path matches your route
-                  >
-                    Education
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <Link
-                    className={`nav-link mx-lg-2 ${styles.navlink}`}
-                    to="#projects"
-                  >
-                    Projects
-                  </Link>
-                </li>
-                <li className="nav-item">
-                  <a
-                    className={`nav-link mx-lg-2 ${styles.navlink}`}
-                    href={mybook}
-                  >
-                    Fantasy Writing
+                <Link
+                  className={`nav-link mx-lg-2 ${styles.navlink}`}
+                  to="/projects"
+                >
+                  Projects
+                </Link>
+              </li>
+                <li class="nav-item">
+                  <a class={`nav-link mx-lg-2 ${styles.navlink}`} href={mybook}>
+                    Fantasy Writings
                   </a>
                 </li>
                 <li className="nav-item">
-                  <Link
-                    className={`nav-link mx-lg-2 ${styles.navlink}`}
-                    to="#contact"
-                  >
-                    Contact
-                  </Link>
-                </li>
+                <Link
+                  className={`nav-link mx-lg-2 ${styles.navlink}`}
+                  to="/contact"
+                >
+                  Contact
+                </Link>
+              </li>
               </ul>
             </div>
           </div>
-          <Link to="/" className={`${styles.Hirebtn} ${styles.customHirebtn}`}>
-            Hire-Now
-          </Link>
+          <Link to="https://www.linkedin.com/in/hussnain-ahamd-sahi/" className={`${styles.Hirebtn} ${styles.customHirebtn}`}>
+          Hire-Now
+        </Link>
           <button
-            className={`navbar-toggler custom-navbar-toggler ${styles.customnavbartoggler} ${styles.navbartoggler}`}
+            class={`navbar-toggler custom-navbar-toggler ${styles.navbartoggler}`}
             type="button"
             data-bs-toggle="offcanvas"
-            data-bs-target=".offcanvasDarkNavbar"
+            data-bs-target="#offcanvasDarkNavbar"
             aria-controls="offcanvasDarkNavbar"
             aria-label="Toggle navigation"
           >
-            <span className="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"></span>
           </button>
         </div>
       </nav>
+
       <div className="home-container">
         <Welcome name={name} />
         <div className="about-section">
@@ -124,6 +124,7 @@ function Home({ name }) {
           </a>
         </div>
       </div>
+      <Footer />
     </>
   );
 }

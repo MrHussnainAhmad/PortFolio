@@ -1,9 +1,7 @@
-// src/components/Main.js
-
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Main.css";
 import Mainstyles from "./Main.module.css";
+import "./Main.css";
 
 function Main({ setName }) {
   const [inputName, setInputName] = useState("");
@@ -33,20 +31,24 @@ function Main({ setName }) {
   };
 
   return (
-    <div className={Mainstyles.mainContainer}>
-      <div className={Mainstyles.questionBox}>
-        <p>What is your name?</p>
-        <input
-          type="text"
-          value={inputName}
-          onChange={handleInputChange}
-          onKeyDown={handleKeyDown}
-          placeholder="Enter your name"
-          className={isInputEmpty ? Mainstyles.inputError : ""}
-        />
-        <button onClick={handleSubmit}>Enter</button>
+    <>
+      <div className={Mainstyles.mainContainer}>
+        <div className={Mainstyles.questionBox}>
+          <p>What is your name?</p>
+          <div className={Mainstyles.inputWrapper}>
+            <input
+              type="text"
+              value={inputName}
+              onChange={handleInputChange}
+              onKeyDown={handleKeyDown}
+              placeholder="Enter your name"
+              className={isInputEmpty ? Mainstyles.inputError : ""}
+            />
+            <button onClick={handleSubmit}>Enter</button>
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

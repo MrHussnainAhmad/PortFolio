@@ -2,6 +2,7 @@ import React from "react";
 import eduStyles from "./Education.module.css";
 import NavBar from "./Navbar";
 import certificates from './certificates.json';
+import Footer from "./Footer";
 
 function Education({ name }) {
   return (
@@ -55,6 +56,7 @@ function Education({ name }) {
           ))}
         </div>
       </div>
+      <Footer />
     </>
   );
 }

@@ -34,7 +34,7 @@
     color: #00ccff;
 }
 
-.inputContainer {
+.inputWrapper {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -59,7 +59,7 @@ input:focus {
 
 button {
     padding: 10px 15px;
-    margin-left: 10px; /* Ensures there's a gap between the input and button */
+    margin-left: 10px !important; /* Ensure margin is applied */
     border-radius: 5px;
     border: 2px solid #00ccff;
     background-color: #00ccff;

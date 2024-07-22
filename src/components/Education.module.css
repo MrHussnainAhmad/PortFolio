@@ -9,7 +9,7 @@
     margin: 20px;
     margin-top: 5%;
     transition: transform 0.3s ease-in-out;
-    animation: fadeIn 3s ease-in-out;
+    animation: fadeIn 2s ease-in-out;
 }
 .eduContainer:hover{
     transform: translateY(-10px);
@@ -20,7 +20,7 @@
     color: #333;
     margin-bottom: 20px;
     font-family: 'Lora', serif;
-    animation: fadeIn 4s ease-in-out;
+    animation: fadeIn 3s ease-in-out;
 }
 .Education{
     display: flex;
@@ -34,7 +34,7 @@
     color: #555;
     margin-bottom: 15px;
     font-family: 'Lora', serif;
-    animation: fadeIn 4s ease-in-out;
+    animation: fadeIn 3s ease-in-out;
 }
 .eduBox {
     padding: 20px;
@@ -51,7 +51,7 @@
     color: #333;
     margin-bottom: 10px;
     font-family: 'Lora', serif;
-    animation: fadeIn 4s ease-in-out;
+    animation: fadeIn 3s ease-in-out;
 
 }
 
@@ -60,7 +60,7 @@
     color: #555;
     margin-bottom: 10px;
     font-family: 'Share Tech Mono', monospace;
-    animation: fadeIn 4s ease-in-out;
+    animation: fadeIn 3s ease-in-out;
 
 }
 
@@ -68,7 +68,7 @@
     font-size: 1.2em;
     color: #666;
     font-family: 'Lora', serif;
-    animation: fadeIn 4s ease-in-out;
+    animation: fadeIn 3s ease-in-out;
 
 }
 .Certificates{

@@ -5,6 +5,8 @@ import Main from './components/Main';
 import Home from './components/Home';
 import Education from './components/Education';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Contact from './components/Contact';
+import Projects from './components/Projects';
 
 function App() {
     const [name, setName] = useState('');
@@ -15,6 +17,8 @@ function App() {
                 <Route path="/" element={<Main setName={setName} />} />
                 <Route path="/home" element={<Home name={name} />} />
                 <Route path="/education" element={<Education  name = {name}/>} />
+                <Route path="/contact" element={<Contact  name = {name}/>} />
+                <Route path="/projects" element={<Projects  name = {name}/>} />
             </Routes>
         </Router>
     );
