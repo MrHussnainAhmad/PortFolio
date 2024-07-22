@@ -1,0 +1,80 @@
+/* src/components/Main.css */
+
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+.mainContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+    font-family: 'Share Tech Mono', monospace;
+    color: #00ccff;
+}
+
+.questionBox {
+    text-align: center;
+    padding: 30px;
+    border-radius: 15px;
+    font-family: "Lora", serif;
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.questionBox:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
+}
+
+.questionBox p {
+    font-size: 1.75em;
+    margin-bottom: 20px;
+    color: #00ccff;
+}
+
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+input {
+    font-family: "Lora", serif;
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #00ccff;
+    background-color: transparent;
+    color: #00ccff;
+    outline: none;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+input:focus {
+    background-color: #333333;
+    border-color: #0099cc;
+}
+
+button {
+    padding: 10px 15px;
+    margin-left: 10px; /* Ensures there's a gap between the input and button */
+    border-radius: 5px;
+    border: 2px solid #00ccff;
+    background-color: #00ccff;
+    color: #0d0d0d;
+    font-family: 'Share Tech Mono', monospace;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, border-color 0.3s;
+}
+
+button:hover {
+    background-color: #0099cc;
+    border-color: #0077a3;
+    transform: scale(1.05);
+}
+
+.inputError {
+    border: 2px solid red;
+}
