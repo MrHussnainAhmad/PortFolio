@@ -7,6 +7,7 @@ import Education from './components/Education';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Contact from './components/Contact';
 import Projects from './components/Projects';
+import Indev from './components/indev';
 
 function App() {
     const [name, setName] = useState('');
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/education" element={<Education  name = {name}/>} />
                 <Route path="/contact" element={<Contact  name = {name}/>} />
                 <Route path="/projects" element={<Projects  name = {name}/>} />
+                <Route path="/indev" element={<Indev  name = {name}/>} />
             </Routes>
         </Router>
     );

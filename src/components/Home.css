@@ -11,7 +11,7 @@
     justify-content: center;
     background-color: #0d0d0d;
     color: #00ccff;
-    padding-top: 80px; /* To avoid overlap with the fixed navbar */
+    padding-top: 90px; /* To avoid overlap with the fixed navbar */
 }
 
 .home-container h1 {

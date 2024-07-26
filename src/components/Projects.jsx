@@ -17,7 +17,7 @@ const projects = [
   {
     title: 'HidayaPortal',
     description: 'A site for Muslims, to connect Muslims.',
-    link: 'In Development',
+    link: '/indev',
     image: img2
   },
 ];

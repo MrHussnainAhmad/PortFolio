@@ -1,11 +1,12 @@
 /* src/components/Footer.module.css */
 
 .footer {
-    background-color: #1a1a1a;
-    color: #f0f0f0;
+    background-color: white;
+    color: #1a1a1a;
     padding: 30px 0;
     font-family: 'Arial', sans-serif;
-    height: 42vh;
+    height: 35vh;
+    justify-content: center;
   }
   
   .container {
@@ -14,7 +15,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #1a1a1a;
+    background-color: white;
   }
   
   .row {
@@ -35,7 +36,7 @@
   .title {
     font-size: 1.3em;
     margin-bottom: 15px;
-    color: #f0f0f0;
+    color: #1a1a1a;
   }
   .title1 {
     font-size: 1.3em;
@@ -79,7 +80,11 @@
   .copy {
     text-align: center;
     font-size: 0.9em;
-    color: #aaa;
-    background-color: #1a1a1a;
+    color: #1a1a1a;
+  }
+
+  @media (max-width:612px) {
+    .footer{height: 42vh;}
   }
   
+ 

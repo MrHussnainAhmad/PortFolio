@@ -1,1 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap');
+html, body {
+    height: auto; /* Ensure the body can expand as needed */
+    overflow: auto; /* Ensure the body can scroll if needed */
+  }
