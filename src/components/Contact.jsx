@@ -1,196 +1,217 @@
-import React, { useState, useRef } from 'react';
-import emailjs from '@emailjs/browser';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import { faLinkedin, faGithub, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { useRef, useState } from 'react'
+import emailjs from '@emailjs/browser'
+import { profile } from '../data/profile'
+import { Spinner } from './icons'
+import { Plate, Rule, ExternalLink } from './ui'
 
-export const Contact = () => {
-  const form = useRef();
-  const [formData, setFormData] = useState({
-    user_name: "",
-    user_email: "",
-    message: "",
-  });
-  const [isLoading, setIsLoading] = useState(false);
-  const [status, setStatus] = useState({ type: "", message: "" });
+/*
+ * RegisterPlate — contact.
+ *
+ * A survey sheet ends with the surveyor's register: who made it, where
+ * they were, how to reach them. The form uses ruled fields rather than
+ * boxes, which is both the visual idiom of a paper form and quieter than
+ * six outlined rectangles stacked up.
+ *
+ * The EmailJS field names (user_name, user_email, message) and the three
+ * env vars are unchanged from the previous build, so the existing
+ * template and Vercel environment keep working untouched.
+ */
 
-  const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-  const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-  const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID
+const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
+const fieldClass =
+  'w-full border-0 border-b border-graticule bg-transparent px-0 py-3 text-base text-bone transition-colors duration-300 placeholder:text-mist/45 focus:border-amber focus:outline-none focus:ring-0'
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setStatus({ type: "", message: "" });
+function Field({ label, hint, children }) {
+  return (
+    <label className="block">
+      <span className="t-eyebrow flex items-baseline gap-3 text-mist">
+        {label}
+        {hint ? <span className="t-data normal-case tracking-normal text-mist/50">{hint}</span> : null}
+      </span>
+      <span className="mt-1 block">{children}</span>
+    </label>
+  )
+}
+
+export function Contact() {
+  const form = useRef(null)
+  const [values, setValues] = useState({ user_name: '', user_email: '', message: '' })
+  const [sending, setSending] = useState(false)
+  const [status, setStatus] = useState(null)
+
+  const configured = Boolean(SERVICE_ID && TEMPLATE_ID && PUBLIC_KEY)
+
+  const handleChange = (event) => {
+    setValues((prev) => ({ ...prev, [event.target.name]: event.target.value }))
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault()
+
+    if (!configured) {
+      setStatus({
+        type: 'error',
+        message: `The form is not configured on this deployment. Email ${profile.email} directly and it will reach me.`,
+      })
+      return
+    }
+
+    setSending(true)
+    setStatus(null)
 
     try {
-      const result = await emailjs.sendForm(
-        SERVICE_ID,
-        TEMPLATE_ID,
-        form.current,
-        PUBLIC_KEY
-      );
-
-      console.log("Email sent successfully:", result.text);
+      await emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, PUBLIC_KEY)
+      setStatus({ type: 'success', message: 'Sent. I read everything and I reply.' })
+      setValues({ user_name: '', user_email: '', message: '' })
+      form.current?.reset()
+    } catch {
       setStatus({
-        type: "success",
-        message: "Message sent successfully! I'll get back to you soon.",
-      });
-
-      setFormData({
-        user_name: "",
-        user_email: "",
-        message: "",
-      });
-      form.current.reset();
-    } catch (error) {
-      console.error("Email sending failed:", error);
-      setStatus({
-        type: "error",
-        message: "Failed to send message. Please try again or contact me directly.",
-      });
+        type: 'error',
+        message: `That did not go through. Email ${profile.email} instead and it will reach me.`,
+      })
     } finally {
-      setIsLoading(false);
+      setSending(false)
     }
-  };
+  }
 
   return (
-    <div className="min-h-screen py-20 px-[5%] bg-black flex flex-col items-center animate-fadeIn">
-      <h1 className="font-playfair text-5xl font-bold text-white text-center mb-4 tracking-tight animate-[glowFadeIn_1.2s_ease-out] shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-        Get In Touch
-      </h1>
-      
-      <p className="font-inter text-lg text-white/70 text-center mb-16 max-w-2xl opacity-0 animate-[fadeInDelay_1.5s_ease-out_forwards]">
-        I'm always open to discussing new opportunities and interesting projects.
-      </p>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 max-w-5xl w-full">
-        {/* Contact Info */}
-        <div className="flex flex-col gap-8 opacity-0 animate-slideInLeft">
-          <div>
-            <h3 className="font-inter text-sm font-normal text-white/60 uppercase tracking-widest mb-2 flex items-center gap-2">
-              <FontAwesomeIcon icon={faEnvelope} className="text-white/80 text-base transition-colors duration-300" />
-              Email
-            </h3>
-            <a 
-              href="mailto:workwithhussnainahmad@gmail.com"
-              className="font-inter text-lg text-white no-underline transition-all duration-300 relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-            >
-              workwithhussnainahmad@gmail.com
-            </a>
+    <Plate
+      id="register"
+      number="06"
+      title="Register"
+      elevation={`${profile.latitude} ${profile.longitude}`}
+      lede="Open to work, contract or full-time, remote or relocating. If you are building something in web, mobile or Unity, tell me about it — a specific paragraph will always get a better reply than a template."
+    >
+      <div className="grid gap-x-16 gap-y-14 lg:grid-cols-[minmax(0,20rem)_minmax(0,1fr)]">
+        {/* Station register */}
+        <div className="reveal">
+          <div className="flex items-center gap-4">
+            <span className="t-margin shrink-0 text-mist/70">Station</span>
+            <Rule className="flex-1" />
           </div>
 
-          <div>
-            <h3 className="font-inter text-sm font-normal text-white/60 uppercase tracking-widest mb-2 flex items-center gap-2">
-              <FontAwesomeIcon icon={faLinkedin} className="text-white/80 text-base transition-colors duration-300" />
-              LinkedIn
-            </h3>
-            <a
-              href="https://www.linkedin.com/in/hussnain-ahmad-sahi-b2b037396/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-inter text-lg text-white no-underline transition-all duration-300 relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-            >
-              linkedin.com/in/hussnain-ahamd-sahi
-            </a>
+          <p className="mt-5 text-base text-bone">{profile.station}</p>
+          <p className="t-data mt-1 text-mist/70">
+            {profile.latitude} · {profile.longitude}
+          </p>
+
+          <div className="mt-8">
+            <span className="t-eyebrow text-mist">Email</span>
+            <p className="mt-1.5">
+              <a
+                href={`mailto:${profile.email}`}
+                className="group/mail inline-flex text-[0.95rem] text-bone transition-colors duration-300 hover:text-amber"
+              >
+                <span className="relative break-all">
+                  {profile.email}
+                  <span className="absolute -bottom-0.5 left-0 h-px w-0 bg-amber transition-all duration-300 ease-survey group-hover/mail:w-full" />
+                </span>
+              </a>
+            </p>
           </div>
 
-          <div>
-            <h3 className="font-inter text-sm font-normal text-white/60 uppercase tracking-widest mb-2 flex items-center gap-2">
-              <FontAwesomeIcon icon={faGithub} className="text-white/80 text-base transition-colors duration-300" />
-              GitHub
-            </h3>
-            <a
-              href="https://github.com/MrHussnainAhmad"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-inter text-lg text-white no-underline transition-all duration-300 relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-            >
-              github.com/MrHussnainAhmad
-            </a>
-          </div>
+          <ul className="mt-8 space-y-4">
+            {profile.links.map((link) => (
+              <li key={link.label}>
+                <span className="t-eyebrow block text-mist">{link.label}</span>
+                <span className="mt-1.5 block">
+                  <ExternalLink href={link.href} className="text-[0.95rem]">
+                    {link.handle}
+                  </ExternalLink>
+                </span>
+              </li>
+            ))}
+          </ul>
 
-          <div>
-            <h3 className="font-inter text-sm font-normal text-white/60 uppercase tracking-widest mb-2 flex items-center gap-2">
-              <FontAwesomeIcon icon={faInstagram} className="text-white/80 text-base transition-colors duration-300" />
-              Instagram
-            </h3>
-            <a
-              href="https://www.instagram.com/hussnain.ahmad.sahi/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="font-inter text-lg text-white no-underline transition-all duration-300 relative after:content-[''] after:absolute after:bottom-[-2px] after:left-0 after:w-0 after:h-[1px] after:bg-white after:transition-all after:duration-300 hover:after:w-full"
-            >
-              instagram.com/hussnain.ahmad.sahi
-            </a>
+          <div className="mt-8 border-t border-graticule/60 pt-6">
+            <ExternalLink href={profile.cv} className="text-[0.95rem]">
+              Download CV
+            </ExternalLink>
           </div>
         </div>
 
-        {/* Contact Form */}
-        <form ref={form} className="flex flex-col gap-6 opacity-0 animate-slideInRight" onSubmit={handleSubmit}>
-          <input
-            type="text"
-            name="user_name"
-            placeholder="Your Name"
-            value={formData.user_name}
-            onChange={handleChange}
-            required
-            className="p-4 bg-white/5 border border-white/20 rounded-md text-white font-inter text-sm transition-all duration-300 placeholder:text-white/40 focus:outline-none focus:border-white/40 focus:bg-white/8"
-          />
-          <input
-            type="email"
-            name="user_email"
-            placeholder="Your Email"
-            value={formData.user_email}
-            onChange={handleChange}
-            required
-            className="p-4 bg-white/5 border border-white/20 rounded-md text-white font-inter text-sm transition-all duration-300 placeholder:text-white/40 focus:outline-none focus:border-white/40 focus:bg-white/8"
-          />
-          <textarea
-            name="message"
-            placeholder="Your Message"
-            rows="5"
-            value={formData.message}
-            onChange={handleChange}
-            required
-            className="p-4 bg-white/5 border border-white/20 rounded-md text-white font-inter text-sm resize-y min-h-[120px] transition-all duration-300 placeholder:text-white/40 focus:outline-none focus:border-white/40 focus:bg-white/8"
-          ></textarea>
+        {/* Field form */}
+        <form ref={form} onSubmit={handleSubmit} className="reveal reveal-d1" noValidate={false}>
+          <div className="flex items-center gap-4">
+            <span className="t-margin shrink-0 text-mist/70">Send a note</span>
+            <Rule className="flex-1" />
+          </div>
 
-          {status.message && (
-            <div className={`p-4 rounded-lg mb-4 font-inter text-sm text-center animate-fadeIn ${
-              status.type === 'success' 
-                ? 'bg-green-500/10 border border-green-500/30 text-green-500' 
-                : 'bg-red-500/10 border border-red-500/30 text-red-500'
-            }`}>
-              {status.message}
-            </div>
-          )}
+          <div className="mt-8 grid gap-8 sm:grid-cols-2">
+            <Field label="Name">
+              <input
+                type="text"
+                name="user_name"
+                autoComplete="name"
+                required
+                value={values.user_name}
+                onChange={handleChange}
+                placeholder="Your name"
+                className={fieldClass}
+              />
+            </Field>
 
-          <button
-            type="submit"
-            disabled={isLoading}
-            className={`py-4 px-8 bg-white text-black border-none rounded-md font-inter text-sm font-medium uppercase tracking-widest cursor-pointer transition-all duration-300 hover:bg-white/90 hover:-translate-y-1 hover:shadow-[0_8px_25px_rgba(255,255,255,0.2)] disabled:opacity-70 disabled:cursor-not-allowed disabled:transform-none ${
-              isLoading ? 'flex items-center justify-center gap-2' : ''
-            }`}
-          >
-            {isLoading ? (
-              <>
-                <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
-                Sending...
-              </>
-            ) : (
-              "Send Message"
-            )}
-          </button>
+            <Field label="Email">
+              <input
+                type="email"
+                name="user_email"
+                autoComplete="email"
+                required
+                value={values.user_email}
+                onChange={handleChange}
+                placeholder="you@company.com"
+                className={fieldClass}
+              />
+            </Field>
+          </div>
+
+          <div className="mt-8">
+            <Field label="Message" hint="what you are building, and what you need">
+              <textarea
+                name="message"
+                rows={6}
+                required
+                value={values.message}
+                onChange={handleChange}
+                placeholder="A paragraph is plenty."
+                className={`${fieldClass} min-h-[8rem] resize-y leading-relaxed`}
+              />
+            </Field>
+          </div>
+
+          <div className="mt-10 flex flex-wrap items-center gap-x-6 gap-y-4">
+            <button
+              type="submit"
+              disabled={sending}
+              className="t-eyebrow inline-flex items-center justify-center gap-2.5 rounded-[2px] bg-bone px-7 py-3.5 text-ink transition-all duration-300 ease-survey hover:-translate-y-0.5 hover:bg-white disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
+            >
+              {sending ? (
+                <>
+                  <Spinner className="animate-spin text-[0.95em]" />
+                  Sending
+                </>
+              ) : (
+                'Send message'
+              )}
+            </button>
+
+            {/* Status is announced, and coloured from the band ramp
+                rather than default browser green and red. */}
+            <p
+              role="status"
+              aria-live="polite"
+              className={`t-data max-w-[24rem] leading-relaxed ${
+                status?.type === 'success' ? 'text-moss' : 'text-rust'
+              }`}
+            >
+              {status?.message || ''}
+            </p>
+          </div>
         </form>
       </div>
-    </div>
-  );
-};
+    </Plate>
+  )
+}

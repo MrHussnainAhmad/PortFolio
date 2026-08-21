@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32" role="img" aria-label="Hussnain Ahmad">
+  <title>Hussnain Ahmad</title>
+  <!--
+    The mark is the elevation ramp itself: three ascending bars in the
+    band colours, web to mobile to games. It is the smallest possible
+    statement of what the whole site is about, and it survives being
+    rendered at 16px in a browser tab.
+  -->
+  <rect width="32" height="32" fill="#0D1317"/>
+  <rect x="4" y="20" width="7" height="8" fill="#778C5A"/>
+  <rect x="12.5" y="13" width="7" height="15" fill="#D39A3A"/>
+  <rect x="21" y="6" width="7" height="22" fill="#A8452A"/>
+</svg>

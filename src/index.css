@@ -1,97 +1,204 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600;700&family=Luxurious+Script&family=Markazi+Text:wght@400..700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+/* ==================================================================
+   TERRAIN SURVEY
+   Base layer: page ground, type defaults, focus treatment.
+   ================================================================== */
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    /* the sticky sheet header is 4.5rem; anchors must clear it */
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    margin: 0;
+    background-color: #0d1317;
+    color: #e9e3d5;
+    font-family: 'Instrument Sans', system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Keyboard focus must always be visible. Amber reads clearly against
+     every surface in the palette. */
+  :focus-visible {
+    outline: 2px solid #d39a3a;
+    outline-offset: 3px;
+    border-radius: 2px;
+  }
+  :focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  ::selection {
+    background: rgba(211, 154, 58, 0.28);
+    color: #e9e3d5;
+  }
+
+  /* Marginalia scrollbar — thin, in palette, never a rainbow gradient. */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #233038 transparent;
+  }
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0d1317;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #233038;
+    border: 3px solid #0d1317;
+    border-radius: 99px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #34454e;
+  }
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
+/* ==================================================================
+   Component layer — the survey sheet vocabulary.
+   These bundle family + width axis + tracking so JSX stays readable.
+   ================================================================== */
+
+@layer components {
+  /* The type scale pulls its tracking from tailwind.config.js via
+     theme(), so the tokens there are load-bearing rather than a second
+     copy of the same numbers drifting out of sync with these. */
+
+  /* Plate titles run Archivo at an expanded width axis. This is the
+     single most identity-carrying decision on the page. */
+  .t-display {
+    font-family: theme('fontFamily.display');
+    font-variation-settings: 'wdth' 118, 'wght' 700;
+    font-weight: 700;
+    letter-spacing: theme('letterSpacing.plate');
+    line-height: 0.94;
+  }
+
+  .t-display-tight {
+    font-family: theme('fontFamily.display');
+    font-variation-settings: 'wdth' 100, 'wght' 600;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+
+  /* Sheet marginalia: coordinates, plate numbers, elevation readouts. */
+  .t-margin {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: theme('letterSpacing.margin');
+    text-transform: uppercase;
+  }
+
+  .t-data {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .t-eyebrow {
+    font-family: theme('fontFamily.mono');
+    font-size: 0.6875rem;
+    font-weight: 500;
+    letter-spacing: theme('letterSpacing.survey');
+    text-transform: uppercase;
+  }
+
+  /* Hairline rule that reads as a graticule line, not a border. */
+  .rule {
+    height: 1px;
+    background: linear-gradient(
+      to right,
+      #233038 0%,
+      #233038 72%,
+      rgba(35, 48, 56, 0) 100%
+    );
+  }
 }
 
-body {
-  background-color: #000000;
-  color: #ffffff;
-  font-family: 'Inter', sans-serif;
-  overflow-x: hidden;
-  min-height: 100vh;
-}
+/* ==================================================================
+   Utilities
+   ================================================================== */
 
-#root {
-  min-height: 100vh;
-}
+@layer utilities {
+  /* Paper grain. Adds tooth so large ink fields don't look flat. */
+  .grain::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.035;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
 
-/* Custom animations not in Tailwind config */
-@keyframes glowFadeIn {
-  from {
+  /* Reveal-on-scroll primitive. IntersectionObserver adds .is-visible.
+     Delays are written out as literal class names in the components that
+     use them — Tailwind scans source text, so an interpolated name would
+     never be emitted into the build. */
+  .reveal {
     opacity: 0;
-    transform: translateY(-30px) scale(0.9);
-    text-shadow: 0 0 50px rgba(255, 255, 255, 0.8);
+    transform: translateY(16px);
+    transition: opacity 0.7s cubic-bezier(0.16, 0.84, 0.24, 1),
+      transform 0.7s cubic-bezier(0.16, 0.84, 0.24, 1);
   }
-  to {
+  .reveal.is-visible {
     opacity: 1;
-    transform: translateY(0) scale(1);
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
+    transform: none;
+  }
+  .reveal-d1 {
+    transition-delay: 0.08s;
+  }
+  .reveal-d2 {
+    transition-delay: 0.16s;
+  }
+  .reveal-d3 {
+    transition-delay: 0.24s;
+  }
+  .reveal-d4 {
+    transition-delay: 0.32s;
   }
 }
 
-@keyframes fadeInDelay {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
+/* ==================================================================
+   Reduced motion — honoured properly, not just on decorative bits.
+   The contour canvas also checks this and renders one static frame.
+   ================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
-  to {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+
+  .reveal {
     opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Star movement animation */
-@keyframes move {
-  0% {
-    transform: translate(0, 0);
-  }
-  25% {
-    transform: translate(calc(var(--move-x, 0px) * 0.3), calc(var(--move-y, 0px) * 0.3));
-  }
-  50% {
-    transform: translate(var(--move-x, 0px), var(--move-y, 0px));
-  }
-  75% {
-    transform: translate(calc(var(--move-x, 0px) * 0.7), calc(var(--move-y, 0px) * 1.2));
-  }
-  100% {
-    transform: translate(calc(var(--move-x, 0px) * -0.2), calc(var(--move-y, 0px) * -0.1));
-  }
-}
-
-/* Apply movement animation to stars */
-.animate-twinkle {
-  animation: twinkle 2s infinite ease-in-out alternate, 
-             move var(--move-duration, 80s) infinite linear alternate;
-}
-
-/* Performance optimizations */
-.animate-twinkle,
-.animate-shoot {
-  will-change: transform, opacity;
-}
-
-/* Responsive: Hide some stars on mobile */
-@media (max-width: 768px) {
-  .animate-twinkle:nth-child(n+100) {
-    display: none;
-  }
-}
-
-@media (max-width: 480px) {
-  .animate-twinkle:nth-child(n+75) {
-    display: none;
+    transform: none;
   }
 }
